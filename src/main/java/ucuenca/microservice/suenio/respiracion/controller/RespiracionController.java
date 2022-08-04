@@ -11,6 +11,7 @@ import ucuenca.microservice.suenio.respiracion.service.RespiracionService;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin(origins="*")
 @RestController
 @RequestMapping("/api/respiracion")
 public class RespiracionController {
@@ -36,9 +37,6 @@ public class RespiracionController {
     public ResponseEntity<List<RespiracionEntity>> findListRespiracion(@PathVariable String fechaIni, @PathVariable String fechaFin){
         List<RespiracionEntity> temp = new ArrayList<>();
         temp = respiracionService.findListRespiracion(fechaIni, fechaFin);
-        if(temp.isEmpty()){
-            return ResponseEntity.noContent().build();
-        }
         return ResponseEntity.ok(temp);
     }
 
@@ -46,9 +44,6 @@ public class RespiracionController {
     public ResponseEntity<List<RespiracionEntity>> findListIdUserResp(@PathVariable String id_user){
         List<RespiracionEntity> temp = new ArrayList<>();
         temp = respiracionService.findByIdUserResp(id_user);
-        if(temp.isEmpty()){
-            return ResponseEntity.noContent().build();
-        }
         return ResponseEntity.ok(temp);
     }
 
