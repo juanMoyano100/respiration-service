@@ -6,12 +6,13 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Service;
 import ucuenca.microservice.suenio.respiracion.entity.RespiracionEntity;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-
+@Service
 public class RespiracionServiceImpl implements RespiracionService{
 
     private final MongoOperations mongoOperations;
